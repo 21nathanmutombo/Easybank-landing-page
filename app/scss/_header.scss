@@ -1,0 +1,90 @@
+.header {
+
+       nav {
+        padding: 1.0625rem 1.5rem;
+        //background-color: $veryLightGray;
+      }
+
+    &__logo {
+
+      img { 
+        width: 8.8125rem;
+        height: 1.375rem;
+
+      }
+
+    }
+     &__menu { //mobile
+       > span {
+          display: block;
+          width:  26px;
+          height: 2px;
+          background-color: $darkBlue;
+
+          &:not(:last-child){
+             margin-bottom: 3px;
+          }
+        }
+      }
+
+     &__links {
+        
+        border: 1px;
+        a {
+   
+          font-size: $font-sml;
+          color: $grayishBlue;
+          transition: color 300ms ease-in-out;
+          position: relative;
+
+          &:not(last-child){
+          margin-right: 2rem;
+          }
+
+          &::before {
+          
+          content: "";
+          display: block;
+          background: linear-gradient(to right, $limeGreen, $brightCyan );
+          width: 100%;
+          position: absolute;
+          height: 0.3125rem;
+          left: 0;
+          right: 0;
+          bottom: -1.875rem;
+          opacity: 0;
+          transition: opacity 300ms ease-in-out;
+
+          }
+        
+
+          &:hover {
+            color: $darkBlue;
+
+            &::before {
+              
+              opacity: 1;
+            }
+          }
+          }
+
+        a::before {
+
+
+          }
+        }
+
+        &__cta {
+            color: $white;
+            font-size: $font-med;
+            opacity: 1;
+            transition: opacity 300ms ease-in-out;
+
+            &:hover {
+              opacity: 0.60;
+            }
+        }
+
+        
+      }
+

@@ -1,1 +1,6 @@
-@import "globals";
+
+
+@import 'variables';  // css for variables
+@import 'header';     // css for header element
+@import 'mixins';     //breakpoints
+@import 'globals';    //css for global element
