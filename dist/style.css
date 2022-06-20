@@ -1,73 +1,69 @@
-.header nav {
-  padding: 1.0625rem 1.5rem;
+@-webkit-keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  t0 {
+    opacity: 1;
+  }
 }
 
-.header__logo img {
-  width: 8.8125rem;
-  height: 1.375rem;
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  t0 {
+    opacity: 1;
+  }
 }
 
-.header__menu > span {
-  display: block;
-  width: 26px;
-  height: 2px;
-  background-color: #2d314d;
+.fade-in {
+  -webkit-animation: fade-in 300ms ease-in-out forwards;
+          animation: fade-in 300ms ease-in-out forwards;
 }
 
-.header__menu > span:not(:last-child) {
-  margin-bottom: 3px;
+@-webkit-keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  t0 {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
-.header__links {
-  border: 1px;
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  t0 {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
-.header__links a {
-  font-size: 0.875rem;
-  color: #9698a6;
-  -webkit-transition: color 300ms ease-in-out;
-  transition: color 300ms ease-in-out;
-  position: relative;
-}
-
-.header__links a:not(last-child) {
-  margin-right: 2rem;
-}
-
-.header__links a::before {
-  content: "";
-  display: block;
-  background: -webkit-gradient(linear, left top, right top, from(limegreen), to(#2bb7da));
-  background: linear-gradient(to right, limegreen, #2bb7da);
-  width: 100%;
-  position: absolute;
-  height: 0.3125rem;
-  left: 0;
-  right: 0;
-  bottom: -1.875rem;
-  opacity: 0;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.header__links a:hover {
-  color: #2d314d;
-}
-
-.header__links a:hover::before {
-  opacity: 1;
-}
-
-.header__cta {
-  color: white;
-  font-size: 1.125rem;
-  opacity: 1;
-  -webkit-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out;
-}
-
-.header__cta:hover {
-  opacity: 0.60;
+.fade-out {
+  -webkit-animation: fade-out 300ms ease-in-out forwards;
+          animation: fade-out 300ms ease-in-out forwards;
 }
 
 html {
@@ -139,4 +135,112 @@ button, .button {
   .hide-for-desktop {
     display: none;
   }
+}
+
+.header.open .header__menu > span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header.open .header__menu > span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header__menu > span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.header.open .overlay {
+  position: fixed;
+  top: 3.75rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2d314d), to(transparent));
+  background-image: linear-gradient(#2d314d, transparent);
+}
+
+.header.open .overlay.fade-in {
+  display: block;
+}
+
+.header.open .overlay.fade-out {
+  display: none;
+}
+
+.header nav {
+  padding: 1.0625rem 1.5rem;
+}
+
+.header__logo img {
+  width: 8.8125rem;
+  height: 1.375rem;
+}
+
+.header__menu > span {
+  display: block;
+  width: 1.625rem;
+  height: 0.125rem;
+  background-color: #2d314d;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  -webkit-transform-origin: 3.1px 0.8px;
+          transform-origin: 3.1px 0.8px;
+}
+
+.header__menu > span:not(:last-child) {
+  margin-bottom: 0.3125rem;
+}
+
+.header__links {
+  border: 0.0625rem;
+}
+
+.header__links a {
+  font-size: 0.875rem;
+  color: #9698a6;
+  -webkit-transition: color 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
+  position: relative;
+}
+
+.header__links a:not(last-child) {
+  margin-right: 2rem;
+}
+
+.header__links a::before {
+  content: "";
+  display: block;
+  background: -webkit-gradient(linear, left top, right top, from(limegreen), to(#2bb7da));
+  background: linear-gradient(to right, limegreen, #2bb7da);
+  width: 100%;
+  position: absolute;
+  height: 0.3125rem;
+  left: 0;
+  right: 0;
+  bottom: -1.875rem;
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.header__links a:hover {
+  color: #2d314d;
+}
+
+.header__links a:hover::before {
+  opacity: 1;
+}
+
+.header__cta {
+  color: white;
+  font-size: 1.125rem;
+  opacity: 1;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+.header__cta:hover {
+  opacity: 0.60;
 }
